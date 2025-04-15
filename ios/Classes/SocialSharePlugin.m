@@ -88,7 +88,7 @@
             // This call is iOS 10+, can use 'setItems' depending on what versions you support
             [[UIPasteboard generalPasteboard] setItems:@[pasteboardItems] options:pasteboardOptions];
 
-            [[UIApplication sharedApplication] openURL:urlScheme options:@{} completionHandler:nil];
+            [[UIApplication sharedApplication] open:urlScheme options:@{} completionHandler:nil];
               result(@"success");
             } else {
                 result(@"error");
@@ -122,7 +122,7 @@
         NSString* urlTextEscaped = [urlSchemeTwitter stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSURL *urlSchemeSend = [NSURL URLWithString:urlTextEscaped];
         if (@available(iOS 10.0, *)) {
-            [[UIApplication sharedApplication] openURL:urlSchemeSend options:@{} completionHandler:nil];
+            [[UIApplication sharedApplication] open:urlSchemeSend options:@{} completionHandler:nil];
             result(@"success");
         } else {
             result(@"error");
@@ -144,7 +144,7 @@
             NSURL *urlScheme = [NSURL URLWithString:urlSchemeSms];
             if ([[UIApplication sharedApplication] canOpenURL:urlScheme]) {
                 if (@available(iOS 10.0, *)) {
-                    [[UIApplication sharedApplication] openURL:urlScheme options:@{} completionHandler:nil];
+                    [[UIApplication sharedApplication] open:urlScheme options:@{} completionHandler:nil];
                     result(@"success");
                 } else {
                     result(@"error");
@@ -165,7 +165,7 @@
                 NSURL *urlSchemeMsg = [NSURL URLWithString:urlWithLink];
                 if ([[UIApplication sharedApplication] canOpenURL:urlScheme]) {
                     if (@available(iOS 10.0, *)) {
-                        [[UIApplication sharedApplication] openURL:urlSchemeMsg options:@{} completionHandler:nil];
+                        [[UIApplication sharedApplication] open:urlSchemeMsg options:@{} completionHandler:nil];
                         result(@"success");
                     } else {
                         result(@"error");
@@ -184,7 +184,7 @@
                 NSURL *urlSchemeMsg = [NSURL URLWithString:finalUrl];
                 if ([[UIApplication sharedApplication] canOpenURL:urlScheme]) {
                     if (@available(iOS 10.0, *)) {
-                        [[UIApplication sharedApplication] openURL:urlSchemeMsg options:@{} completionHandler:nil];
+                        [[UIApplication sharedApplication] open:urlSchemeMsg options:@{} completionHandler:nil];
                         result(@"success");
                     } else {
                         result(@"error");
@@ -204,7 +204,7 @@
         NSString * urlWhats = [NSString stringWithFormat:@"whatsapp://send?text=%@",content];
         NSURL * whatsappURL = [NSURL URLWithString:[urlWhats stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
         if ([[UIApplication sharedApplication] canOpenURL: whatsappURL]) {
-            [[UIApplication sharedApplication] openURL: whatsappURL];
+            [[UIApplication sharedApplication] open: whatsappURL];
             result(@"success");
         } else {
             result(@"error");
@@ -215,7 +215,7 @@
         NSString * urlScheme = [NSString stringWithFormat:@"tg://msg?text=%@",content];
         NSURL * telegramURL = [NSURL URLWithString:[urlScheme stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
         if ([[UIApplication sharedApplication] canOpenURL: telegramURL]) {
-            [[UIApplication sharedApplication] openURL: telegramURL];
+            [[UIApplication sharedApplication] open: telegramURL];
             result(@"success");
         } else {
             result(@"error");
