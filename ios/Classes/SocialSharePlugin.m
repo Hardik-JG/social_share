@@ -89,7 +89,7 @@
             // This call is iOS 10+, can use 'setItems' depending on what versions you support
             [[UIPasteboard generalPasteboard] setItems:@[pasteboardItems] options:pasteboardOptions];
 
-            [[UIApplication sharedApplication] open:urlScheme options:@{} completionHandler:nil];
+            [[UIApplication sharedApplication] open:urlScheme options:@{}];
               result(@"success");
             } else {
                 result(@"error");
@@ -123,7 +123,7 @@
         NSString* urlTextEscaped = [urlSchemeTwitter stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSURL *urlSchemeSend = [NSURL URLWithString:urlTextEscaped];
         if (@available(iOS 10.0, *)) {
-            [[UIApplication sharedApplication] open:urlSchemeSend options:@{} completionHandler:nil];
+            [[UIApplication sharedApplication] open:urlSchemeSend options:@{}];
             result(@"success");
         } else {
             result(@"error");
@@ -145,7 +145,7 @@
             NSURL *urlScheme = [NSURL URLWithString:urlSchemeSms];
             if ([[UIApplication sharedApplication] canOpenURL:urlScheme]) {
                 if (@available(iOS 10.0, *)) {
-                    [[UIApplication sharedApplication] open:urlScheme options:@{} completionHandler:nil];
+                    [[UIApplication sharedApplication] open:urlScheme options:@{}];
                     result(@"success");
                 } else {
                     result(@"error");
@@ -166,7 +166,7 @@
                 NSURL *urlSchemeMsg = [NSURL URLWithString:urlWithLink];
                 if ([[UIApplication sharedApplication] canOpenURL:urlScheme]) {
                     if (@available(iOS 10.0, *)) {
-                        [[UIApplication sharedApplication] open:urlSchemeMsg options:@{} completionHandler:nil];
+                        [[UIApplication sharedApplication] open:urlSchemeMsg options:@{}];
                         result(@"success");
                     } else {
                         result(@"error");
@@ -185,7 +185,7 @@
                 NSURL *urlSchemeMsg = [NSURL URLWithString:finalUrl];
                 if ([[UIApplication sharedApplication] canOpenURL:urlScheme]) {
                     if (@available(iOS 10.0, *)) {
-                        [[UIApplication sharedApplication] open:urlSchemeMsg options:@{} completionHandler:nil];
+                        [[UIApplication sharedApplication] open:urlSchemeMsg options:@{}];
                         result(@"success");
                     } else {
                         result(@"error");
