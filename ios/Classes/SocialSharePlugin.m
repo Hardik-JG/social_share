@@ -4,6 +4,7 @@
 //
 
 #import "SocialSharePlugin.h"
+#import <UIKit/UIKit.h>
 #include <objc/runtime.h>
 
 @implementation SocialSharePlugin
